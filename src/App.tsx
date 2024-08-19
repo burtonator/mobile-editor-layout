@@ -17,7 +17,7 @@ function App() {
     const height = Math.floor(window.visualViewport.height);
     const newHeight = `${height}px`
     document.getElementById('root')!.style.minHeight = newHeight;
-    setMessage(iterRef.current + `height is now: ` + newHeight)
+    setMessage(iterRef.current + ` height is now: ` + newHeight)
   }, [])
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
         </div>
 
         <div  onClick={adjustForKeyboard}>
-          iter={iterRef.current}, initialHeight: {initialHeight} = {message}
+          initialHeight: {initialHeight} = {message}
         </div>
 
         <button onClick={adjustForKeyboard}>
