@@ -1,11 +1,14 @@
-import {useCallback, useEffect} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 function App() {
 
+  const [message, setMessage] = useState("")
 
   const adjustForKeyboard = useCallback(() => {
     const height = window.innerHeight;
-    document.body.style.minHeight = `${height}px`;
+    const newHeight = `${height}px`
+    document.body.style.minHeight = newHeight;
+    setMessage('height is now: ' + newHeight)
   }, [])
 
   useEffect(() => {
@@ -26,6 +29,10 @@ function App() {
 
         <div contentEditable={true} style={{flexGrow: 1, margin: 4}}>
           This is the content editable region
+        </div>
+
+        <div>
+          {message}
         </div>
 
         <div style={{padding: 8}}>
