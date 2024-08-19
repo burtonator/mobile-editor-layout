@@ -31,7 +31,8 @@ body {
 
 #root {
   flex-grow: 1;
-  height: 100svh;
+  /*height: 100svh;*/
+  height: 434px;
   display: flex;
 }
 

@@ -9,26 +9,26 @@ function App() {
 
   const adjustForKeyboard = useCallback(() => {
 
-    if (! window.visualViewport) {
-      return
-    }
-
-    iterRef.current = iterRef.current + 1
-    const height = Math.floor(window.visualViewport.height);
-    const newHeight = `${height}px`
-    document.getElementById('root')!.style.minHeight = newHeight;
-    setMessage(iterRef.current + ` height is now: ` + newHeight)
+    // if (! window.visualViewport) {
+    //   return
+    // }
+    //
+    // iterRef.current = iterRef.current + 1
+    // const height = Math.floor(window.visualViewport.height);
+    // const newHeight = `${height}px`
+    // document.getElementById('root')!.style.minHeight = newHeight;
+    // setMessage(iterRef.current + ` height is now: ` + newHeight)
   }, [])
 
   useEffect(() => {
-    adjustForKeyboard();
-
-    // Adjust whenever the window resizes (e.g., when the keyboard appears)
-    window.addEventListener('resize', adjustForKeyboard);
-
-    return () => {
-      window.removeEventListener('resize', adjustForKeyboard)
-    }
+    // adjustForKeyboard();
+    //
+    // // Adjust whenever the window resizes (e.g., when the keyboard appears)
+    // window.addEventListener('resize', adjustForKeyboard);
+    //
+    // return () => {
+    //   window.removeEventListener('resize', adjustForKeyboard)
+    // }
 
   }, [adjustForKeyboard])
 
