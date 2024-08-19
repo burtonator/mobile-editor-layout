@@ -1,11 +1,12 @@
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 const initialHeight = window.innerHeight
 
 function App() {
 
-  const [message, setMessage] = useState("")
-  const iterRef = useRef(0)
+  //const [message, setMessage] = useState("")
+  const [message] = useState("")
+  // const iterRef = useRef(0)
 
   const adjustForKeyboard = useCallback(() => {
 
