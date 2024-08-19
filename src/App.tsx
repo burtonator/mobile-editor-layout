@@ -1,14 +1,16 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 
 function App() {
 
   const [message, setMessage] = useState("")
+  const iterRef = useRef(0)
 
   const adjustForKeyboard = useCallback(() => {
+    iterRef.current = iterRef.current + 1
     const height = window.innerHeight;
     const newHeight = `${height}px`
     document.getElementById('root')!.style.minHeight = newHeight;
-    setMessage('height is now: ' + newHeight)
+    setMessage(`height is now: ` + newHeight)
   }, [])
 
   useEffect(() => {
@@ -32,7 +34,7 @@ function App() {
         </div>
 
         <div>
-          {message}
+          ${iterRef.current}: {message}
         </div>
 
         <div style={{padding: 8}}>
