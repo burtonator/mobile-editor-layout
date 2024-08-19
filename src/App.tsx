@@ -34,6 +34,11 @@ function App() {
 
   }, [adjustForKeyboard])
 
+  const handleButtonClick = useCallback((event: React.MouseEvent) => {
+    event.stopPropagation()
+    event.preventDefault()
+  }, [])
+
   return (
     <>
       <div style={{display: 'flex', flexGrow: 1, flexDirection: 'column'}}>
@@ -42,17 +47,17 @@ function App() {
           This is the content editable region
         </div>
 
-        <div  onClick={adjustForKeyboard}>
-          initialHeight: {initialHeight} = {message}
-        </div>
+        {/*<div  onClick={adjustForKeyboard}>*/}
+        {/*  initialHeight: {initialHeight} = {message}*/}
+        {/*</div>*/}
 
         <button onClick={adjustForKeyboard}>
           adjust
         </button>
 
         <div style={{padding: 8}} >
-          <button><b>B</b></button>
-          <button><i>I</i></button>
+          <button onClick={handleButtonClick}><b>B</b></button>
+          <button onClick={handleButtonClick}><i>I</i></button>
         </div>
       </div>
     </>
