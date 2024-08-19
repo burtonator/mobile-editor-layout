@@ -14,7 +14,7 @@ function App() {
     }
 
     iterRef.current = iterRef.current + 1
-    const height = window.visualViewport.height;
+    const height = Math.floor(window.visualViewport.height);
     const newHeight = `${height}px`
     document.getElementById('root')!.style.minHeight = newHeight;
     setMessage(iterRef.current + `height is now: ` + newHeight)
