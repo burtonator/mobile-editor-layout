@@ -2,6 +2,8 @@ import {useCallback, useEffect, useRef, useState} from "react";
 
 function App() {
 
+  const initialHeightRef = useRef(window.innerHeight)
+
   const [message, setMessage] = useState("")
   const iterRef = useRef(0)
 
@@ -34,7 +36,7 @@ function App() {
         </div>
 
         <div  onClick={adjustForKeyboard}>
-          {iterRef.current}: {message}
+          iter={iterRef.current}, initialHeight: {initialHeightRef.current} = {message}
         </div>
 
         <button onClick={adjustForKeyboard}>
