@@ -34,9 +34,16 @@ function App() {
 
   }, [adjustForKeyboard])
 
-  const handleButtonClick = useCallback((event: React.MouseEvent) => {
+  const preventKeyboardDeactivation = useCallback((event: React.MouseEvent) => {
+
     event.stopPropagation()
     event.preventDefault()
+
+    const editableArea = document.querySelector('[contenteditable]');
+    if (editableArea) {
+      (editableArea as HTMLElement).focus()
+    }
+
   }, [])
 
   return (
@@ -51,13 +58,13 @@ function App() {
           initialHeight: {initialHeight} = {message}
         </div>
 
-        <button onClick={adjustForKeyboard}>
-          adjust
-        </button>
+        {/*<button onClick={adjustForKeyboard}>*/}
+        {/*  adjust*/}
+        {/*</button>*/}
 
         <div style={{padding: 8}} >
-          <button onClick={handleButtonClick}><b>B</b></button>
-          <button onClick={handleButtonClick}><i>I</i></button>
+          <button onClick={preventKeyboardDeactivation} onMouseDown={preventKeyboardDeactivation}><b>B</b></button>
+          <button onClick={preventKeyboardDeactivation} onMouseDown={preventKeyboardDeactivation}><i>I</i></button>
         </div>
       </div>
     </>
