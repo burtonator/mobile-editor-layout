@@ -7,7 +7,7 @@ function App() {
   const adjustForKeyboard = useCallback(() => {
     const height = window.innerHeight;
     const newHeight = `${height}px`
-    document.body.style.minHeight = newHeight;
+    document.getElementById('root')!.style.minHeight = newHeight;
     setMessage('height is now: ' + newHeight)
   }, [])
 
