@@ -47,9 +47,9 @@ function App() {
           This is the content editable region
         </div>
 
-        {/*<div  onClick={adjustForKeyboard}>*/}
-        {/*  initialHeight: {initialHeight} = {message}*/}
-        {/*</div>*/}
+        <div  onClick={adjustForKeyboard}>
+          initialHeight: {initialHeight} = {message}
+        </div>
 
         <button onClick={adjustForKeyboard}>
           adjust
