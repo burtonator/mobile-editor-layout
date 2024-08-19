@@ -33,11 +33,11 @@ function App() {
           This is the content editable region
         </div>
 
-        <div>
+        <div  onClick={adjustForKeyboard}>
           {iterRef.current}: {message}
         </div>
 
-        <div style={{padding: 8}}>
+        <div style={{padding: 8}} >
           <button><b>B</b></button>
           <button><i>I</i></button>
         </div>
