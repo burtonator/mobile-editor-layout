@@ -8,8 +8,13 @@ function App() {
   const iterRef = useRef(0)
 
   const adjustForKeyboard = useCallback(() => {
+
+    if (! window.visualViewport) {
+      return
+    }
+
     iterRef.current = iterRef.current + 1
-    const height = window.innerHeight;
+    const height = window.visualViewport.height;
     const newHeight = `${height}px`
     document.getElementById('root')!.style.minHeight = newHeight;
     setMessage(iterRef.current + `height is now: ` + newHeight)
