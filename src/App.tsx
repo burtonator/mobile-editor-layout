@@ -1,35 +1,36 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 
 const initialHeight = window.innerHeight
 
 function App() {
 
-  //const [message, setMessage] = useState("")
-  const [message] = useState("")
-  // const iterRef = useRef(0)
+  const [message, setMessage] = useState("")
+  const iterRef = useRef(0)
 
   const adjustForKeyboard = useCallback(() => {
 
-    // if (! window.visualViewport) {
-    //   return
-    // }
-    //
-    // iterRef.current = iterRef.current + 1
-    // const height = Math.floor(window.visualViewport.height);
-    // const newHeight = `${height}px`
-    // document.getElementById('root')!.style.minHeight = newHeight;
-    // setMessage(iterRef.current + ` height is now: ` + newHeight)
+    if (! window.visualViewport) {
+      return
+    }
+
+    iterRef.current = iterRef.current + 1
+    //const height = Math.floor(window.visualViewport.height);
+    const height = 434;
+
+    const newHeight = `${height}px`
+    document.getElementById('root')!.style.maxHeight = newHeight;
+    setMessage(iterRef.current + ` height is now: ` + newHeight)
   }, [])
 
   useEffect(() => {
-    // adjustForKeyboard();
-    //
-    // // Adjust whenever the window resizes (e.g., when the keyboard appears)
-    // window.addEventListener('resize', adjustForKeyboard);
-    //
-    // return () => {
-    //   window.removeEventListener('resize', adjustForKeyboard)
-    // }
+    adjustForKeyboard();
+
+    // Adjust whenever the window resizes (e.g., when the keyboard appears)
+    window.addEventListener('resize', adjustForKeyboard);
+
+    return () => {
+      window.removeEventListener('resize', adjustForKeyboard)
+    }
 
   }, [adjustForKeyboard])
 
