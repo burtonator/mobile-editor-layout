@@ -1,4 +1,24 @@
+import {useCallback, useEffect} from "react";
+
 function App() {
+
+
+  const adjustForKeyboard = useCallback(() => {
+    const height = window.innerHeight;
+    document.body.style.minHeight = `${height}px`;
+  }, [])
+
+  useEffect(() => {
+    adjustForKeyboard();
+
+    // Adjust whenever the window resizes (e.g., when the keyboard appears)
+    window.addEventListener('resize', adjustForKeyboard);
+
+    return () => {
+      window.removeEventListener('resize', adjustForKeyboard)
+    }
+
+  }, [adjustForKeyboard])
 
   return (
     <>
