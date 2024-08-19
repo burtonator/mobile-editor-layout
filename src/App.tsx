@@ -37,6 +37,10 @@ function App() {
           {iterRef.current}: {message}
         </div>
 
+        <button onClick={adjustForKeyboard}>
+          adjust
+        </button>
+
         <div style={{padding: 8}} >
           <button><b>B</b></button>
           <button><i>I</i></button>
