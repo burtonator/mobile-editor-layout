@@ -14,8 +14,8 @@ function App() {
     }
 
     iterRef.current = iterRef.current + 1
-    //const height = Math.floor(window.visualViewport.height);
-    const height = 434;
+    const height = Math.floor(window.visualViewport.height);
+    // const height = 434;
 
     const newHeight = `${height}px`
     document.getElementById('root')!.style.maxHeight = newHeight;
