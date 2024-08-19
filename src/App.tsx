@@ -29,12 +29,12 @@ function App() {
     <>
       <div style={{display: 'flex', flexGrow: 1, flexDirection: 'column'}}>
 
-        <div contentEditable={true} style={{flexGrow: 1, margin: 4}}>
+        <div contentEditable={true} style={{flexGrow: 1, margin: 4}} onClick={adjustForKeyboard}>
           This is the content editable region
         </div>
 
         <div>
-          ${iterRef.current}: {message}
+          {iterRef.current}: {message}
         </div>
 
         <div style={{padding: 8}}>
