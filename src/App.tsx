@@ -12,7 +12,7 @@ function App() {
     const height = window.innerHeight;
     const newHeight = `${height}px`
     document.getElementById('root')!.style.minHeight = newHeight;
-    setMessage(`height is now: ` + newHeight)
+    setMessage(iterRef.current + `height is now: ` + newHeight)
   }, [])
 
   useEffect(() => {
